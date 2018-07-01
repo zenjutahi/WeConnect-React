@@ -16,7 +16,6 @@ body {
     border: 0 none;
     font-weight: 600;
     letter-spacing: 1px;
-    text-transform: uppercase;
 }
 
 .btn:focus, .btn:active:focus, .btn.active:focus {
@@ -52,4 +51,43 @@ body {
     color:#ffffff;
     background-image: url("../images/connected2.png")
 
+  }
+
+  .business_card {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+
+  .business_card_body {
+    min-height: 350px;
+  }
+  .card-wrapper {
+    padding-top: 40px;
+  }
+
+  .text-wraper {
+    min-height: 70px;
+  }
+
+  .buttn {
+    margin-right: 20px;
+    height: 39px;
+  }
+
+  .cardOne {
+    margin-top: 16px
+  }
+
+  .message_list {
+    margin-left: 100px;
+    text-align: center;
+    font-size: 20px;
+  }
+
+  .message_user {
+    margin-left: 85px;
+    text-align: center;
   }
