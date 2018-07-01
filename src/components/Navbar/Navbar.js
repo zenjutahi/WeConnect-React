@@ -1,36 +1,55 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => (
   <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-    <Link className="navbar-brand" to="register"><i className="fa fa-link"></i>WeConnect</Link>
-    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon"></span>
+    <NavLink className="navbar-brand" to="/">
+      <i className="fa fa-link" />WeConnect
+    </NavLink>
+    <button
+      className="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarsExampleDefault"
+      aria-controls="navbarsExampleDefault"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span className="navbar-toggler-icon" />
     </button>
 
     <div className="collapse navbar-collapse" id="navbarsItems">
       <ul className="navbar-nav mr-auto">
-      <li className="nav-item">
-          <Link className="nav-link" to="/">Manage Profile</Link>
-        </li>
-        <li className="nav-item active">
-          <Link className="nav-link" to="businesses">Business Registration<span className="sr-only">(current)</span></Link>
+        <li className="nav-item">
+          <NavLink className="nav-link" to="/dashboard">
+            Manage Profile
+          </NavLink>
         </li>
         <li className="nav-item">
-            <a className="nav-link" href="buss_profile.html">Reviews</a>
-          </li>
+          <NavLink className="nav-link" to="/register/businesses">
+            Register Business
+          </NavLink>
+        </li>
         <li className="nav-item">
-          <Link className="nav-link" to="businesses/list">Listings</Link>
+          <NavLink className="nav-link" to="/login">
+            Reviews
+          </NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" to="/businesses/list">
+            Listings
+          </NavLink>
         </li>
       </ul>
       <ul className="navbar-nav narbar-right">
-          <li className="nav-item">
-            <Link className="nav-link" to="/">Log Out</Link>
-          </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" to="/logout">
+            Log Out
+          </NavLink>
+        </li>
       </ul>
     </div>
   </nav>
-
 );
 
 export default NavBar;
