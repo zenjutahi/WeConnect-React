@@ -37,7 +37,8 @@ const DashboardPage = () => (
             <div className="col-md-8">
               <div className="card ">
                 <div className="card-header try-back">Businesses Overview</div>
-                <DashboardList />
+                <DashboardList
+                />
               </div>
             </div>
             <div className="col-md-4">
