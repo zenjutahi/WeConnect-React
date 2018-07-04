@@ -34,7 +34,7 @@ class BusinessList extends React.Component {
     businesses: [],
     message: undefined,
     currentPage: 1,
-    todosPerPage: 6
+    todosPerPage: 3
   };
 
 
