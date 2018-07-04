@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import meeting from "../../static/images/meeting.jpg"
 
 class BusinessView extends React.Component {
   state = {
@@ -72,7 +73,7 @@ class BusinessView extends React.Component {
         <div className="row">
           <div className="col-6 col-md-6">
             <img
-              src="holder.js/400x220"
+              src={meeting}
               className="img-fluid img-thumbnail"
               alt="Responsive"
             />
