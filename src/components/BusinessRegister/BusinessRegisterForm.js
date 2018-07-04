@@ -85,7 +85,7 @@ class BusinessRegisterForm extends React.Component {
             <input
               type="submit"
               value={this.props.disabled ? "Processing...." : "Register"}
-              className="btn btn-primary my-submit try-back"
+              className="btn btn-primary my-submit try-back review_edit_buttn"
               disabled={this.props.disabled}
             />
           </div>
