@@ -17,9 +17,8 @@ This is a web application for the WeConnect API, a platform that brings business
 - React
 
 ## Important Links
-
-* [Heroku](https://weconnect-api-db.herokuapp.com)
-* [API](http://yummyrecipesapi.herokuapp.com/apidocs/)
+* [Heroku](https://weconnect4-react-app.herokuapp.com/)
+* [API](https://weconnect-api-db.herokuapp.com)
 
 ## Installation
 
