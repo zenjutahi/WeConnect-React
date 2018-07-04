@@ -4,12 +4,6 @@ import NavBar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 
 class BusinessListPage extends React.Component {
-  state = {
-    filter: undefined,
-    search: undefined,
-    category: undefined
-  };
-
   render() {
     return (
       <div>
