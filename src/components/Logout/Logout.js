@@ -1,16 +1,13 @@
 import React from "react";
 
 class Logout extends React.Component {
-  state = {
-    message: undefined
-  };
 
   componentDidMount() {
     fetch("https://weconnect-api-db.herokuapp.com/api/auth/logout", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${this.getToken()}`
+        "Authorization": `Bearer ${this.getToken()}`
       }
     }).then(response => {
       if (response.status === 200) {
@@ -18,10 +15,6 @@ class Logout extends React.Component {
         window.location.assign("/login");
         return;
       }
-
-      response.json().then(data => {
-        this.setState({ message: data.message });
-      });
     });
   }
 
@@ -41,6 +34,11 @@ class Logout extends React.Component {
   render() {
     return (
       <div>
+        <div class="loader" id="loader-2">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
   );
  }
