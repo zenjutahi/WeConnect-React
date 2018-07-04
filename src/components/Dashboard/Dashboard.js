@@ -2,14 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import wraper from "../Wraper";
 
-const Dashboard = ({name,location,category}) => (
+const Dashboard = ({name,location,category,id}) => (
   <tbody>
     <tr>
       <td>{name}</td>
       <td>{location}</td>
       <td>{category}</td>
       <td>
-        <Link to="">View</Link>
+        <Link to={`/business/${id}`}>View</Link>
       </td>
     </tr>
   </tbody>
@@ -40,6 +40,7 @@ class DashboardList extends React.Component {
       // Examine the text in the response
       response.json().then(data => {
         let userBuss = data.business ? data.business : [];
+        setTimeout(localStorage.removeItem("bussDel"), 100000)
         this.setState({
           mybusinesses: userBuss,
           message: data.message
@@ -66,6 +67,7 @@ class DashboardList extends React.Component {
       return (
         <Dashboard
           key={singleBusiness["Businesss id"]}
+          id={singleBusiness["Businesss id"]}
           description={singleBusiness["Business description"]}
           name={singleBusiness["Business name"]}
           location={singleBusiness["Business location"]}
@@ -76,11 +78,11 @@ class DashboardList extends React.Component {
     // get no. of businesses
     const bussNumber = Object.keys(mybusinesses).length
     window.localStorage.setItem("bussNumber", bussNumber);
-    
+
     return (
       <div className="col-md-12">
         <br />
-        {this.state.message && (
+        {this.state.message  &&(
           <div className="alert alert-info col-md-8 message_user" role="alert">
             <p>{this.state.message}</p>
           </div>
