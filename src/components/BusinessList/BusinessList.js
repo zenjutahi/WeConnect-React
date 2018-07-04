@@ -34,7 +34,7 @@ class BusinessList extends React.Component {
     businesses: [],
     message: undefined,
     currentPage: 1,
-    todosPerPage: 3
+    todosPerPage: 6
   };
 
 
@@ -178,17 +178,6 @@ class BusinessList extends React.Component {
         />
       );
     });
-
-    // Logic for displaying current todos
-    // const indexOfLastTodo = currentPage * todosPerPage;
-    // const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
-    // const currentTodos = businessList.slice(indexOfFirstTodo, indexOfLastTodo);
-    //
-    // const renderTodos = currentTodos.map((businessList, index) => {
-    //   return <li key={index}>{businessList}</li>;
-    // });
-
-    // Logic for displaying page numbers
 
 
     return (
