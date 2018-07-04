@@ -52,6 +52,9 @@ class LoginForm extends React.Component {
         <p>
           Not a registred User ? Please <Link to="/user/register">Sign Up</Link>
         </p>
+        <p>
+          <Link to="/resetpassword">Forgot password </Link>
+        </p>
       </form>
     );
   }
