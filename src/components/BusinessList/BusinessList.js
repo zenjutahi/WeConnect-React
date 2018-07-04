@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Pagination from "../Pagination/Pagination";
 
-const Business = ({name, description, location, category}) => (
+const Business = ({name, description, location, category, id}) => (
   <div className="col-md-4">
     <div className="card mb-4 box-shadow">
       <div className="card-body business_card_body">
@@ -16,9 +17,9 @@ const Business = ({name, description, location, category}) => (
           </ul>
           <br />
           <p>
-            <button type="button" className="btn btn-primary btn-sm buttn">
+            <Link to={`/business/${id}`}><button type="button" className="btn btn-primary btn-sm buttn">
               View Business
-            </button>
+            </button></Link>
           </p>
         </div>
       </div>
@@ -27,12 +28,14 @@ const Business = ({name, description, location, category}) => (
 );
 
 class BusinessList extends React.Component {
+
+  handleClick = this.handleClick.bind(this);
   state = {
     businesses: [],
     message: undefined,
-    page: undefined,
+    currentPage: 1,
+    todosPerPage: 6
   };
-
 
 
   componentDidMount() {
@@ -149,11 +152,25 @@ class BusinessList extends React.Component {
       });
   };
 
+  handleClick(event) {
+  this.setState({
+    currentPage: Number(event.target.id)
+  });
+  }
+
   render() {
-    let businesses = this.state.businesses.map(business => {
+    const { businesses, currentPage, todosPerPage, message} = this.state;
+
+    // Logic for displaying current
+    const indexOfLastTodo = currentPage * todosPerPage;
+    const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
+    const currentBusiness = businesses.slice(indexOfFirstTodo, indexOfLastTodo);
+    //map businesses
+    let businessList = currentBusiness.map(business => {
       return (
         <Business
           key={business["Businesss id"]}
+          id={business["Businesss id"]}
           description={business["Business description"]}
           name={business["Business name"]}
           location={business["Business location"]}
@@ -161,6 +178,19 @@ class BusinessList extends React.Component {
         />
       );
     });
+
+    // Logic for displaying current todos
+    // const indexOfLastTodo = currentPage * todosPerPage;
+    // const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
+    // const currentTodos = businessList.slice(indexOfFirstTodo, indexOfLastTodo);
+    //
+    // const renderTodos = currentTodos.map((businessList, index) => {
+    //   return <li key={index}>{businessList}</li>;
+    // });
+
+    // Logic for displaying page numbers
+
+
     return (
       <div className="hold-background">
         <section id="breadcrumb">
@@ -207,17 +237,21 @@ class BusinessList extends React.Component {
         <div>
           <section id="main">
             <div className="container col-md-9">
-              {this.state.message && (
+              {message && (
                 <div
                   className="alert alert-info col-md-10 message_list"
                   role="alert"
                 >
-                  <p>{this.state.message}</p>
+                  <p>{message}</p>
                 </div>
               )}
               <div className="row justify-content-center">
-                <div className="business_card col-md-12">{businesses}</div>
-                <Pagination page={this.state.page} />
+                <div className="business_card col-md-12">{businessList}</div>
+                <Pagination
+                  business={this.state.businesses ? this.state.businesses: []}
+                  handlePageClick={this.handleClick}
+                  todosPerPage={this.state.todosPerPage}
+                />
               </div>
             </div>
           </section>
