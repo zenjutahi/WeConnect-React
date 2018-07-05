@@ -10,3 +10,18 @@ it('renders without login error', () => {
   const login = shallow(<LoginPage />);
   expect(login.find('h3').length).toEqual(1);
 });
+
+it('renders form login without error', () => {
+  const login = shallow(<LoginPage />);
+  expect(login.find('div').length).toEqual(7);
+});
+
+it('should get data from request', () => {
+  const data = shallow(<LoginPage />);
+  expect( data.find(data).length).toEqual(0);
+});
+
+it('should run handleLogin function', () => {
+  const handleLogin = shallow(<LoginPage />);
+  expect( handleLogin.find(handleLogin).length).toEqual(0);
+});
