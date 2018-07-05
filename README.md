@@ -1,3 +1,4 @@
+[![Coverage Status](https://coveralls.io/repos/github/zenjutahi/weconnect-react/badge.svg?branch=master)](https://coveralls.io/github/zenjutahi/weconnect-react?branch=master)
 # WeConnect
 
 This is a web application for the WeConnect API, a platform that brings businesses and individuals together. This platform creates awareness for businesses and gives the users the ability to:
