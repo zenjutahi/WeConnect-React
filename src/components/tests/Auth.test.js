@@ -2,6 +2,8 @@ import LoginPage from "../Login/LoginPage";
 import NavBar from "../Navbar/Navbar";
 import Logout from "../Logout/Logout";
 import BusinessListPage from "../BusinessList/BusinessListPage";
+import Footer from "../Footer/Footer";
+import DashboardPage from "../Dashboard/DashboardPage";
 import BusinessRegisterPage from "../BusinessRegister/BusinessRegisterPage";
 import BusinessRegisterForm from "../BusinessRegister/BusinessRegisterForm";
 import RegisterPage from "../Register/RegisterPage";
@@ -54,10 +56,18 @@ it('should run display user register page', () => {
   expect(page.find('div').length).toEqual(6);
 });
 
-// describe('Login Component', () => {
-//
-//  // make our assertion and what we expect to happen
-//  it('should render without throwing an error', () => {
-//    expect(shallow(<Logout />).find('div.loader').exists()).toBe(true)
-//  })
-// })
+describe('Login Component', () => {
+
+ // make our assertion and what we expect to happen
+ it('should render without throwing an error', () => {
+   expect(shallow(<DashboardPage />).find('header').exists()).toBe(true)
+ })
+})
+
+describe('Login Component', () => {
+
+ // make our assertion and what we expect to happen
+ it('should render without throwing an error', () => {
+   expect(shallow(<Footer />).find('footer').exists()).toBe(true)
+ })
+})
