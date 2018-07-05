@@ -1,6 +1,3 @@
-import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 import LoginPage from "../Login/LoginPage";
 import NavBar from "../Navbar/Navbar";
 import Logout from "../Logout/Logout";
@@ -10,7 +7,6 @@ import BusinessRegisterForm from "../BusinessRegister/BusinessRegisterForm";
 import RegisterPage from "../Register/RegisterPage";
 import RegisterForm from "../Register/RegisterForm";
 
-Enzyme.configure({ adapter: new Adapter() });
 
 
 it('renders without login error', () => {
@@ -58,10 +54,10 @@ it('should run display user register page', () => {
   expect(page.find('div').length).toEqual(6);
 });
 
-describe('Login Component', () => {
-
- // make our assertion and what we expect to happen
- it('should render without throwing an error', () => {
-   expect(shallow(<Logout />).find('div.loader').exists()).toBe(true)
- })
-})
+// describe('Login Component', () => {
+//
+//  // make our assertion and what we expect to happen
+//  it('should render without throwing an error', () => {
+//    expect(shallow(<Logout />).find('div.loader').exists()).toBe(true)
+//  })
+// })
