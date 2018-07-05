@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Pagination from "../Pagination/Pagination";
 
-const Business = ({name, description, location, category, id}) => (
+const Business = ({ name, description, location, category, id }) => (
   <div className="col-md-4">
     <div className="card mb-4 box-shadow">
       <div className="card-body business_card_body">
@@ -17,9 +17,11 @@ const Business = ({name, description, location, category, id}) => (
           </ul>
           <br />
           <p>
-            <Link to={`/business/${id}`}><button type="button" className="btn btn-primary btn-sm buttn">
-              View Business
-            </button></Link>
+            <Link to={`/business/${id}`}>
+              <button type="button" className="btn btn-primary btn-sm buttn">
+                View Business
+              </button>
+            </Link>
           </p>
         </div>
       </div>
@@ -28,7 +30,6 @@ const Business = ({name, description, location, category, id}) => (
 );
 
 class BusinessList extends React.Component {
-
   handleClick = this.handleClick.bind(this);
   state = {
     businesses: [],
@@ -36,7 +37,6 @@ class BusinessList extends React.Component {
     currentPage: 1,
     todosPerPage: 6
   };
-
 
   componentDidMount() {
     fetch("https://weconnect-api-db.herokuapp.com/api/businesses", {
@@ -153,13 +153,13 @@ class BusinessList extends React.Component {
   };
 
   handleClick(event) {
-  this.setState({
-    currentPage: Number(event.target.id)
-  });
+    this.setState({
+      currentPage: Number(event.target.id)
+    });
   }
 
   render() {
-    const { businesses, currentPage, todosPerPage, message} = this.state;
+    const { businesses, currentPage, todosPerPage, message } = this.state;
 
     // Logic for displaying current
     const indexOfLastTodo = currentPage * todosPerPage;
@@ -178,7 +178,6 @@ class BusinessList extends React.Component {
         />
       );
     });
-
 
     return (
       <div className="hold-background">
@@ -237,9 +236,9 @@ class BusinessList extends React.Component {
               <div className="row justify-content-center">
                 <div className="business_card col-md-12">{businessList}</div>
                 <Pagination
-                  business={this.state.businesses ? this.state.businesses: []}
+                  business={businesses ? businesses : []}
                   handlePageClick={this.handleClick}
-                  todosPerPage={this.state.todosPerPage}
+                  todosPerPage={todosPerPage}
                 />
               </div>
             </div>

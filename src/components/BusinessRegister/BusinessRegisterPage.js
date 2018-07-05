@@ -6,7 +6,6 @@ import Footer from "../Footer/Footer";
 class BusinessRegisterPage extends React.Component {
   state = {
     message: undefined,
-    tokenMessage: undefined,
     disabled: false
   };
 

@@ -32,7 +32,7 @@ const Homepage = () => (
       </div>
       <Link to="/login" className="btn btn-lg btn-secondary">
         Get Started now
-      </Link>>
+      </Link>
     </div>
   </div>
 );

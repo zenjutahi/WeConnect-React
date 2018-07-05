@@ -3,30 +3,24 @@ import BusinessList from "./BusinessList";
 import NavBar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 
-class BusinessListPage extends React.Component {
-  render() {
-    return (
-      <div>
-        <NavBar />
-
-        <header id="header">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-10">
-                <h2>
-                  WeConnect Businesses Listings<small />
-                </h2>
-              </div>
-              <div className="col-md-2" />
-            </div>
+const BusinessListPage = () => (
+  <div>
+    <NavBar />
+    <header id="header">
+      <div className="container">
+        <div className="row">
+          <div className="col-md-10">
+            <h2>
+              WeConnect Businesses Listings<small />
+            </h2>
           </div>
-        </header>
-        <BusinessList />
-
-        <Footer />
+          <div className="col-md-2" />
+        </div>
       </div>
-    );
-  }
-}
+    </header>
+    <BusinessList />
+    <Footer />
+  </div>
+);
 
 export default BusinessListPage;

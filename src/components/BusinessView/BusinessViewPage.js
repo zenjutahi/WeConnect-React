@@ -130,10 +130,10 @@ class BusinessViewPage extends React.Component {
                         <table className="table table-hover">
                           <thead>
                             <tr>
-                              <th>#rates</th>
+                              <th>#Review</th>
                               <th>Value</th>
                               <th>Comment</th>
-                              <th>Reviews</th>
+                              <th>Rating</th>
                             </tr>
                           </thead>
                           <tbody>
