@@ -62,7 +62,7 @@ class BusinessList extends React.Component {
   }
 
   getToken() {
-    const token = localStorage.getItem("accessToken");
+    const token = window.localStorage.getItem("accessToken");
     if (token == null) {
       window.localStorage.setItem(
         "register_message",
