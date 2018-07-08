@@ -1,4 +1,4 @@
-eyaimport React from "react";
+import React from "react";
 import ResetPasswordForm from "./ResetPasswordForm";
 
 class ResetPasswordPage extends React.Component {
