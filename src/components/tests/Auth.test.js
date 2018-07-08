@@ -1,10 +1,13 @@
 import LoginPage from "../Login/LoginPage";
 import NavBar from "../Navbar/Navbar";
 import Logout from "../Logout/Logout";
+import LoginForm from "../Login/LoginForm";
 import BusinessListPage from "../BusinessList/BusinessListPage";
 import Footer from "../Footer/Footer";
 import DashboardPage from "../Dashboard/DashboardPage";
+import BusinessView from "../BusinessView/BusinessView";
 import BusinessRegisterPage from "../BusinessRegister/BusinessRegisterPage";
+import Homepage from "../Home/Homepage";
 import BusinessRegisterForm from "../BusinessRegister/BusinessRegisterForm";
 import RegisterPage from "../Register/RegisterPage";
 import RegisterForm from "../Register/RegisterForm";
@@ -56,7 +59,7 @@ it('should run display user register page', () => {
   expect(page.find('div').length).toEqual(6);
 });
 
-describe('Login Component', () => {
+describe('DashboardPage Component', () => {
 
  // make our assertion and what we expect to happen
  it('should render without throwing an error', () => {
@@ -64,7 +67,23 @@ describe('Login Component', () => {
  })
 })
 
-describe('Login Component', () => {
+describe('Homepage Component', () => {
+
+ // make our assertion and what we expect to happen
+ it('should render without throwing an error', () => {
+   expect(shallow(<Homepage />).find('div').length).toEqual(6)
+ })
+})
+
+describe('LoginForm Component', () => {
+
+ // make our assertion and what we expect to happen
+ it('should render without throwing an error', () => {
+   expect(shallow(<LoginForm />).find('div').length).toEqual(2)
+ })
+})
+
+describe('Footer Component', () => {
 
  // make our assertion and what we expect to happen
  it('should render without throwing an error', () => {
