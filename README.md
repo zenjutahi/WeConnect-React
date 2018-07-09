@@ -1,6 +1,5 @@
 [![Build Status](https://travis-ci.org/zenjutahi/weconnect-react.svg?branch=develop)](https://travis-ci.org/zenjutahi/weconnect-react)
-
-[![Coverage Status](https://coveralls.io/repos/github/zenjutahi/weconnect-react/badge.svg?branch=develop&service=github)](https://coveralls.io/github/zenjutahi/weconnect-react?branch=develop&service=github)
+[![Coverage Status](https://coveralls.io/repos/github/zenjutahi/weconnect-react/badge.svg?branch=develop)](https://coveralls.io/github/zenjutahi/weconnect-react?branch=develop)
 # WeConnect
 
 This is a web application for the WeConnect API, a platform that brings businesses and individuals together. This platform creates awareness for businesses and gives the users the ability to:
