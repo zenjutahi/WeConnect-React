@@ -3,6 +3,7 @@ import NavBar from "../Navbar/Navbar";
 import Logout from "../Logout/Logout";
 import LoginForm from "../Login/Loginform";
 import BusinessListPage from "../BusinessList/BusinessListPage";
+import BusinessList from "../BusinessList/BusinessList";
 import Footer from "../Footer/Footer";
 import DashboardPage from "../Dashboard/DashboardPage";
 import BusinessView from "../BusinessView/BusinessView";
@@ -90,3 +91,12 @@ describe('Footer Component', () => {
    expect(shallow(<Footer />).find('footer').exists()).toBe(true)
  })
 })
+
+// describe('Paginator Component', () => {
+//
+//  // make our assertion and what we expect to happen
+//  it('should render without throwing an error', () => {
+//    const Paginator = shallow(<BusinessList />);
+//    expect(Paginator.handleClick()).toEqual(3)
+//  })
+// })
