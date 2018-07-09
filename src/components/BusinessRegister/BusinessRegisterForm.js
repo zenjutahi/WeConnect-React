@@ -1,13 +1,39 @@
 import React from "react";
 import "./buss.css";
 
-const BusinessRegisterForm = ({handleBussRegister, message, disabled}) => (
+
+
+class BusinessRegisterForm extends React.Component {
+  state = {
+    name: '',
+    description: '',
+    location: '',
+    category: ''
+  }
+
+  onInputChange = (e) => {
+    console.log(e.target);
+    const inputName = e.target.name;
+    const inputValue = e.target.value;
+    const state = {}
+    Object.defineProperty(state, inputName, {value: inputValue, enumerable: true})
+    this.setState(state);
+  }
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    const formData = this.state;
+    this.props.handleBussRegister(formData)
+  }
+
+  render() {
+  return(
   <div className="card small-card">
-    <form onSubmit={handleBussRegister}>
+    <form onSubmit={this.onSubmit}>
       <div className="card-block">
-        {message && (
+        {this.props.message && (
           <div className="alert alert-danger" role="alert">
-            <p>{message}</p>
+            <p>{this.props.message}</p>
           </div>
         )}
         <div className="form-group row">
@@ -15,7 +41,12 @@ const BusinessRegisterForm = ({handleBussRegister, message, disabled}) => (
             Business Name :
           </label>
           <div className="col-8">
-            <input className="form-control" type="text" name="name" />
+            <input  onChange={this.onInputChange}
+                    value={ this.state.name }
+                    className="form-control"
+                    type="text"
+                    id="name"
+                    name="name" />
           </div>
         </div>
         <div className="form-group row">
@@ -27,8 +58,11 @@ const BusinessRegisterForm = ({handleBussRegister, message, disabled}) => (
           </label>
           <div className="col-8">
             <textarea
+              onChange={this.onInputChange}
+              value={ this.state.description }
               className="form-control"
               type="text"
+              id="description"
               name="description"
               placeholder="Description here..."
             />
@@ -43,8 +77,10 @@ const BusinessRegisterForm = ({handleBussRegister, message, disabled}) => (
           </label>
           <div className="col-8">
             <select
+              onChange={this.onInputChange}
+              value={ this.state.location }
               className="custom-select mb-2 mr-sm-2 mb-sm-0"
-              id="inlineFormCustomSelect"
+              id="inlineFormCustomSelect1"
               name="location"
             >
               <option value="">Select...</option>
@@ -65,8 +101,10 @@ const BusinessRegisterForm = ({handleBussRegister, message, disabled}) => (
           </label>
           <div className="col-8">
             <select
+              onChange={this.onInputChange}
+              value={ this.state.category }
               className="custom-select mb-2 mr-sm-2 mb-sm-0"
-              id="inlineFormCustomSelect"
+              id="inlineFormCustomSelect2"
               name="category"
             >
               <option value="">Select...</option>
@@ -79,13 +117,14 @@ const BusinessRegisterForm = ({handleBussRegister, message, disabled}) => (
         </div>
         <input
           type="submit"
-          value={disabled ? "Processing...." : "Register"}
+          value={this.props.disabled ? "Processing...." : "Register"}
           className="btn btn-primary my-submit try-back review_edit_buttn"
-          disabled={disabled}
+          disabled={this.props.disabled}
         />
       </div>
     </form>
   </div>
 );
-
+}
+}
 export default BusinessRegisterForm;

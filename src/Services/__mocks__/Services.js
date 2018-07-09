@@ -11,6 +11,10 @@ const successResetPassword = {
       'message': "Check your email address for new password"
 }
 
+const successRegisterBusiness = {
+      'message': "New business has been created"
+}
+
 export const weConnectLogin = async (email, password) => {
   const data =  await new Promise ((resolve, reject) => {
     resolve(successLoginResponse)
@@ -26,9 +30,16 @@ export const weConnectRegister = async (formData) => {
 }
 
 export const weConnectResetPassword = async (formData) => {
-  console.log('here')
   const data =  await new Promise ((resolve, reject) => {
     resolve(successResetPassword)
+  });
+  return data;
+}
+
+export const weConnectBusinessRegister = async (formData) => {
+  console.log('here')
+  const data =  await new Promise ((resolve, reject) => {
+    resolve(successRegisterBusiness)
   });
   return data;
 }

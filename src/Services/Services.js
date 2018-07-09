@@ -49,3 +49,35 @@ export const weConnectResetPassword = async (formData) => {
   );
   return prom.json();
 }
+
+const getToken = (e) => {
+  const token = localStorage.getItem("accessToken");
+  if (token == null) {
+    window.localStorage.setItem(
+      "register_message",
+      "Please login to Register Business"
+    );
+    window.location.assign("/login");
+  } else {
+    return token;
+  }
+}
+
+export const weConnectBusinessRegister = async (formData) => {
+  return await fetch(
+    "https://weconnect-api-db.herokuapp.com/api/businesses",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${getToken()}`
+      },
+      body: JSON.stringify({
+        name: formData.name,
+        description: formData.description,
+        location: formData.location,
+        category: formData.category
+      })
+    }
+  );
+}

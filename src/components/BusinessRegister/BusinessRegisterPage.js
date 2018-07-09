@@ -1,5 +1,6 @@
 import React from "react";
 import BusinessRegisterForm from "./BusinessRegisterForm";
+import { weConnectBusinessRegister } from '../../Services/Services';
 import NavBar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 
@@ -9,25 +10,7 @@ class BusinessRegisterPage extends React.Component {
     disabled: false
   };
 
-  getToken() {
-    const token = localStorage.getItem("accessToken");
-    if (token == null) {
-      window.localStorage.setItem(
-        "register_message",
-        "Please login to Register Business"
-      );
-      window.location.assign("/login");
-    } else {
-      return token;
-    }
-  }
-
-  handleBussRegister = async e => {
-    e.preventDefault();
-    const name = e.target.name.value;
-    const description = e.target.description.value;
-    const location = e.target.location.value;
-    const category = e.target.category.value;
+  handleBussRegister = async (formData) => {
 
     this.setState({ disabled: "disabled" });
 
@@ -36,6 +19,10 @@ class BusinessRegisterPage extends React.Component {
         response.hasOwnProperty("message") &&
         response.message === "New business has been created"
       ) {
+        localStorage.setItem(
+          "bussMessage",
+          "New business has been created"
+        );
         this.props.history.push({
           pathname: "/dashboard"
         });
@@ -54,21 +41,7 @@ class BusinessRegisterPage extends React.Component {
         });
       }
     };
-    await fetch("https://weconnect-api-db.herokuapp.com/api/businesses", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${this.getToken()}`
-      },
-      body: JSON.stringify({
-        name: name,
-        description: description,
-        location: location,
-        category: category
-      })
-    })
-      // .then((resp) => console.log(resp.json() ))
-      .then(resp => resp.json())
+    await weConnectBusinessRegister(formData)
       .then(setNewState)
       .catch(function(error) {
         console.log("Request failed due to", error);
