@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/zenjutahi/weconnect-react.svg?branch=develop)](https://travis-ci.org/zenjutahi/weconnect-react)
+
 [![Coverage Status](https://coveralls.io/repos/github/zenjutahi/weconnect-react/badge.svg?branch=develop&service=github)](https://coveralls.io/github/zenjutahi/weconnect-react?branch=develop&service=github)
 # WeConnect
 
