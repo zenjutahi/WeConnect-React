@@ -1,5 +1,6 @@
 import React from "react";
 import RegisterForm from "./RegisterForm";
+import { weConnectRegister } from '../../Services/Services';
 
 class RegisterPage extends React.Component {
   state = {
@@ -7,33 +8,14 @@ class RegisterPage extends React.Component {
     disabled: false
   };
 
-  handleRegister = async e => {
-    e.preventDefault();
-    const firstName = e.target.first_name.value;
-    const username = e.target.username.value;
-    const email = e.target.email.value;
-    const password = e.target.password.value;
+  handleRegister = async (formData) => {
 
     this.setState({ disabled: "disabled" });
 
-    const api_call = await fetch(
-      "https://weconnect-api-db.herokuapp.com/api/auth/register",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          first_name: firstName,
-          username: username,
-          email: email,
-          password: password
-        })
-      }
-    );
-    const data = await api_call.json();
-    if (data.message === `${username}'s account succesfully created`) {
-      window.localStorage.setItem("register_message", data.message);
+    const data = await weConnectRegister(formData);
+    if (data.message === `${formData.username}'s account succesfully created`) {
+      console
+      localStorage.setItem("register_message", data.message);
       window.location.assign("/login");
       this.setState({
         message: undefined

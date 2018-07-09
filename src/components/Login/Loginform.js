@@ -2,9 +2,29 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 class LoginForm extends React.Component {
+  state = {
+    email: '',
+    password: ''
+  }
+
+  onInputChange = (e) => {
+    console.log(e.target);
+    const inputName = e.target.name;
+    const inputValue = e.target.value;
+    const state = {}
+    Object.defineProperty(state, inputName, {value: inputValue, enumerable: true})
+    this.setState(state);
+  }
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    const formData = this.state;
+    this.props.handleLogin(formData)
+  }
+
   render() {
     return (
-      <form onSubmit={this.props.handleLogin}>
+      <form onSubmit={this.onSubmit}>
         {this.props.message &&
           this.props.message !== "Successfully Loged In" && (
             <div className="alert alert-danger" role="alert">
@@ -25,6 +45,8 @@ class LoginForm extends React.Component {
         <div className="form-group">
           <label className="sr-only">email</label>
           <input
+            onChange={this.onInputChange}
+            value={ this.state.email }
             type="email"
             name="email"
             id="email"
@@ -35,6 +57,8 @@ class LoginForm extends React.Component {
         <div className="form-group">
           <label className="sr-only">password</label>
           <input
+            onChange={ this.onInputChange }
+            value={ this.state.password }
             type="password"
             name="password"
             id="password"

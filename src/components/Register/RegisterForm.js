@@ -2,21 +2,44 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 class RegisterForm extends React.Component {
+  state = {
+    firstName: '',
+    username: '',
+    email: '',
+    password: ''
+  }
+  onInputChange = (e) => {
+    console.log('changed: ', e.target.value);
+    const inputName = e.target.name;
+    const inputValue = e.target.value;
+    const state = {}
+    Object.defineProperty(state, inputName, {value: inputValue, enumerable: true})
+    this.setState(state);
+  }
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    const formData = this.state;
+    console.log(formData)
+    this.props.handleSignin(formData)
+  }
+
   render() {
     return (
-      <form onSubmit={this.props.handleSignin}>
+      <form onSubmit={this.onSubmit}>
         {this.props.message && (
           <div className="alert alert-danger" role="alert">
             <p>{this.props.message}</p>
           </div>
         )}
         <div className="form-group">
-          <label className="sr-only">first_name</label>
+          <label className="sr-only">firstName</label>
           <input
+            onChange={this.onInputChange}
+            value={ this.state.firstName }
             type="text"
-            name="first_name"
-            id="
-              first_name"
+            name="firstName"
+            id="firstName"
             className="form-control"
             placeholder="First Name"
           />
@@ -24,6 +47,8 @@ class RegisterForm extends React.Component {
         <div className="form-group">
           <label className="sr-only">username</label>
           <input
+            onChange={this.onInputChange}
+            value={ this.state.username }
             type="username"
             name="username"
             id="username"
@@ -35,6 +60,8 @@ class RegisterForm extends React.Component {
         <div className="form-group">
           <label className="sr-only">email</label>
           <input
+            onChange={this.onInputChange}
+            value={ this.state.email }
             type="email"
             name="email"
             id="email"
@@ -46,6 +73,8 @@ class RegisterForm extends React.Component {
         <div className="form-group">
           <label className="sr-only">password</label>
           <input
+            onChange={this.onInputChange}
+            value={ this.state.password }
             type="password"
             name="password"
             id="password"

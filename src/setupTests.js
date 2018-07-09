@@ -1,27 +1,28 @@
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
+import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 Enzyme.configure({ adapter: new Adapter() });
 
 class MockLocalStorage {
   constructor () {
-    this.storage = new Map();
+    this.storage = {};
   }
   setItem (key, value) {
-    this.storage.set(key, value);
+    this.storage[key] = value.toString();
   }
   getItem (key) {
-    return this.storage.get(key);
+    return this.storage[key] || null;
   }
   removeItem (key) {
-    this.storage.delete(key);
+    delete this.storage[key];
   }
   clear () {
-    this.constructor();
+    this.storage = {}
   }
 }
 
-global.localStorage = new MockLocalStorage();
+global.localStorage = new MockLocalStorage;
 global.shallow = shallow;
+global.mount = mount;
 global.React = React;

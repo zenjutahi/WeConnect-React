@@ -1,5 +1,6 @@
 import React from "react";
 import LoginForm from "./Loginform";
+import { weConnectLogin } from '../../Services/Services';
 
 class LoginPage extends React.Component {
   state = {
@@ -7,34 +8,25 @@ class LoginPage extends React.Component {
     disabled: false
   };
 
-  handleLogin = async e => {
-    e.preventDefault();
-    const email = e.target.email.value;
-    const password = e.target.password.value;
+  componentDidMount () {
+    console.log('mounted');
+  }
+
+  handleLogin = async (formData) => {
+    console.log(formData);
+    const email = formData.email;
+    const password = formData.password;
 
     this.setState({ disabled: "disabled" });
 
-    const api_call = await fetch(
-      "https://weconnect-api-db.herokuapp.com/api/auth/login",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          email: email,
-          password: password
-        })
-      }
-    );
-    const data = await api_call.json();
-    console.log(data);
+    const data = await weConnectLogin(email, password);
+    console.log(data)
     this.setState({
       message: data.message,
       disabled: false
     });
     localStorage.clear();
-    window.localStorage.setItem("accessToken", data.access_token);
+    localStorage.setItem("accessToken", data.access_token);
     if (data.message === "Successfully Loged In") {
       setTimeout(window.location.assign("/dashboard"), 10);
     }
@@ -59,7 +51,6 @@ class LoginPage extends React.Component {
                   <LoginForm
                     handleLogin={this.handleLogin}
                     message={this.state.message}
-                    error={this.state.error}
                     disabled={this.state.disabled}
                   />
                 </div>

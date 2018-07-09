@@ -1,5 +1,6 @@
 import React from "react";
 import ResetPasswordForm from "./ResetPasswordForm";
+import { weConnectResetPassword } from '../../Services/Services';
 
 class ResetPasswordPage extends React.Component {
   state = {
@@ -7,31 +8,17 @@ class ResetPasswordPage extends React.Component {
     disabled: false
   };
 
-  handleLogin = async e => {
-    e.preventDefault();
-    const email = e.target.email.value;
+  handleReset = async (formData) => {
 
     this.setState({ disabled: "disabled" });
 
-    const api_call = await fetch(
-      "https://weconnect-api-db.herokuapp.com/api/auth/resetpassword",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          email: email
-        })
-      }
-    );
-    const data = await api_call.json();
-    console.log(data);
+    const data = await weConnectResetPassword(formData);
     this.setState({
       message: data.message,
       disabled: false
     });
     if (data.message === "Check your email address for new password") {
+      localStorage.setItem("resetMessage", data.message);
       setTimeout(window.location.assign("/login"), 14000);
     }
   };
@@ -56,7 +43,7 @@ class ResetPasswordPage extends React.Component {
                 </div>
                 <div className="card-body">
                   <ResetPasswordForm
-                    handleLogin={this.handleLogin}
+                    handleReset={this.handleReset}
                     message={this.state.message}
                     disabled={this.state.disabled}
                   />
