@@ -1,39 +1,26 @@
-import React from 'react';
-import BusinessList from './BusinessList';
-import BussNav from './BussNav';
-import Footer from '../Footer/Footer';
+import React from "react";
+import BusinessList from "./BusinessList";
+import NavBar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
 
 const BusinessListPage = () => (
   <div>
-    <BussNav />
-
+    <NavBar />
     <header id="header">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-10">
-            <h2><i class="fa fa-search"></i> Search businesses :<small></small></h2>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-10">
+            <h2>
+              WeConnect Businesses Listings<small />
+            </h2>
           </div>
-          <div class="col-md-2">
-
-
-          </div>
+          <div className="col-md-2" />
         </div>
       </div>
     </header>
-    <div class="hold-background">
-    <section id="breadcrumb">
-      <div class="container">
-        <ol class="breadcrumb try-back">
-          <li class="active">Search for other Businesss</li>
-        </ol>
-      </div>
-    </section>
     <BusinessList />
-    </div>
-
-    <Footer/>
+    <Footer />
   </div>
-
 );
 
 export default BusinessListPage;

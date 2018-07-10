@@ -1,0 +1,8 @@
+[report]
+source =
+    components/
+omit =
+    */migrations/*
+    */static/*
+    */services/*
+[html]

@@ -1,4 +1,3 @@
-
 const wraper = (props) => {
    return props.children;
 }
