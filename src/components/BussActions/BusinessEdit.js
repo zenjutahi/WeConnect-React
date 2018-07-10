@@ -1,47 +1,6 @@
 import React from "react";
 
 class BusinessEdit extends React.Component {
-  state = {
-
-  }
-
-
-  // componentDidMount() {
-  //   fetch(`https://weconnect-api-db.herokuapp.com/api/businesses/${this.props.bussId}`, {
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Authorization: `Bearer ${this.getToken()}`
-  //     }
-  //   }).then(response => {
-  //     if (response.status !== 200 || response.status === 401) {
-  //       window.localStorage.setItem(
-  //         "register_message",
-  //         "Please login to View businesses"
-  //       );
-  //       window.location.assign("/login");
-  //       return;
-  //     }
-  //
-  //     response.json().then(data => {
-  //       let myBuss = data.business ? data.business : [];
-  //       this.setState({ myBuss: myBuss });
-  //     });
-  //   });
-  // }
-  //
-  // getToken() {
-  //   const token = localStorage.getItem("accessToken");
-  //   if (token == null) {
-  //     window.localStorage.setItem(
-  //       "register_message",
-  //       "Please login to View business"
-  //     );
-  //     window.location.assign("/login");
-  //   } else {
-  //     return token;
-  //   }
-  // }
-
   render() {
     return (
       <div className="card small-card">

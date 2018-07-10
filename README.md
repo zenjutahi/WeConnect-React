@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/zenjutahi/weconnect-react.svg?branch=develop)](https://travis-ci.org/zenjutahi/weconnect-react)
 [![Coverage Status](https://coveralls.io/repos/github/zenjutahi/weconnect-react/badge.svg?branch=develop)](https://coveralls.io/github/zenjutahi/weconnect-react?branch=develop)
+[![Maintainability](https://api.codeclimate.com/v1/badges/20cc355f977dc7e62802/maintainability)](https://codeclimate.com/github/zenjutahi/weconnect-react/maintainability)
 # WeConnect
 
 This is a web application for the WeConnect API, a platform that brings businesses and individuals together. This platform creates awareness for businesses and gives the users the ability to:

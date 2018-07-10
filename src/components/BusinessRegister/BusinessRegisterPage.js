@@ -15,14 +15,12 @@ class BusinessRegisterPage extends React.Component {
     this.setState({ disabled: "disabled" });
 
     const setNewState = response => {
+      console.log(response.message)
+      localStorage.setItem("bussMessage",response.message);
       if (
         response.hasOwnProperty("message") &&
         response.message === "New business has been created"
       ) {
-        localStorage.setItem(
-          "bussMessage",
-          "New business has been created"
-        );
         this.props.history.push({
           pathname: "/dashboard"
         });
@@ -42,6 +40,7 @@ class BusinessRegisterPage extends React.Component {
       }
     };
     await weConnectBusinessRegister(formData)
+      // .then(resp => resp.json())
       .then(setNewState)
       .catch(function(error) {
         console.log("Request failed due to", error);
