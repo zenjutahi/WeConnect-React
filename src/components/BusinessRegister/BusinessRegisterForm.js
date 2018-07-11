@@ -1,8 +1,6 @@
 import React from "react";
 import "./buss.css";
 
-
-
 class BusinessRegisterForm extends React.Component {
   state = {
     name: '',
