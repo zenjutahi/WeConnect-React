@@ -22,6 +22,7 @@ function ensureSlash(path, needsSlash) {
   }
 }
 
+
 const getPublicUrl = appPackageJson =>
   envPublicUrl || require(appPackageJson).homepage;
 
@@ -37,6 +38,7 @@ function getServedPath(appPackageJson) {
     envPublicUrl || (publicUrl ? url.parse(publicUrl).pathname : '/');
   return ensureSlash(servedUrl, true);
 }
+
 
 // config after eject: we're in ./config/
 module.exports = {
