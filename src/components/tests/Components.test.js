@@ -15,16 +15,6 @@ import RegisterForm from "../Register/RegisterForm";
 
 
 
-it('renders without login error', () => {
-  const login = shallow(<LoginPage />);
-  expect(login.find('h3').length).toEqual(1);
-});
-
-it('renders form login without error', () => {
-  const login = shallow(<LoginPage />);
-  expect(login.find('div').length).toEqual(7);
-});
-
 it('should get data from request', () => {
   const data = shallow(<NavBar />);
   expect( data.find('nav').length).toEqual(1);

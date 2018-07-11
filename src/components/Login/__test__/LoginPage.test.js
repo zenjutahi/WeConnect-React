@@ -6,6 +6,12 @@ jest.mock('../../../Services/Services');
 describe('LoginPage Component', () => {
 
  // make our assertion and what we expect to happen
+
+ it('renders without login error', () => {
+   const login = shallow(<LoginPage />);
+   expect(login.find('h3').length).toEqual(1);
+ });
+
  it('should render without throwing an error', () => {
    expect(shallow(<LoginPage />).find('div').length).toEqual(7)
  })
